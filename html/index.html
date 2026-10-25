@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastro Hub - Domov (Základné rozloženie)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-layout">
+
+    <!-- Ľavý bočný panel (Sidebar) -->
+    <aside class="sidebar">
+        <div class="brand-bar">
+            <a href="index.html" class="brand-link" title="Prejsť na domovskú stránku">
+                <div class="logo-box">GH</div>
+                <span class="brand-title">GASTRO HUB</span>
+            </a>
+        </div>
+
+        <nav class="main-nav" aria-label="Hlavná navigácia">
+            <p class="nav-heading">Hlavná navigácia</p>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-item active">DOMOV</a></li>
+                <li><a href="#" class="nav-item">Katalóg receptov</a></li>
+                <li><a href="#" class="nav-item">Kategórie jedál</a></li>
+                <li><a href="layout.html" class="nav-item">Moje recepty</a></li>
+                <li><a href="#" class="nav-item">Obľúbené recepty</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-status">
+            Prihlásený používateľ:<br>
+            <strong>Erik Pavelka (rola: Užívateľ)</strong>
+        </div>
+    </aside>
+
+    <!-- Pravá časť stránky -->
+    <div class="content-wrapper">
+
+        <!-- Horná lišta s globálnym vyhľadávaním -->
+        <header class="topbar">
+            <div class="global-search">
+                <input type="search" class="search-input" placeholder="Vyhľadávanie receptov..." aria-label="Vyhľadávanie receptov">
+            </div>
+            <div class="user-actions">
+                <button type="button" class="btn-cyan">Môj účet</button>
+                <button type="button" class="btn-cyan btn-logout">Odhlásiť sa</button>
+            </div>
+        </header>
+
+        <!-- Hlavný obsah so zástupným blokom (Placeholder) -->
+        <main class="main-content placeholder-wrapper">
+            <section class="content-placeholder">
+                <div class="placeholder-inner">
+                    <h2>OBSAH STRÁNKY</h2>
+                </div>
+            </section>
+        </main>
+
+        <!-- Spodná lišta -->
+        <footer class="bottom-bar">
+            <span class="pagination-info">© 2026 Gastro Hub – Semestrálna práca VAII</span>
+        </footer>
+
+    </div>
+</div>
+</body>
+</html>

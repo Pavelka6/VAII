@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastro Hub - Moje recepty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-layout">
+
+    <!-- Ľavý bočný panel (Sidebar) -->
+    <aside class="sidebar">
+        <div class="brand-bar">
+            <a href="index.html" class="brand-link" title="Prejsť na domovskú stránku">
+                <div class="logo-box">GH</div>
+                <span class="brand-title">GASTRO HUB</span>
+            </a>
+        </div>
+
+        <nav class="main-nav" aria-label="Hlavná navigácia">
+            <p class="nav-heading">Hlavná navigácia</p>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-item">DOMOV</a></li>
+                <li><a href="#" class="nav-item">Katalóg receptov</a></li>
+                <li><a href="#" class="nav-item">Kategórie jedál</a></li>
+                <li><a href="layout.html" class="nav-item active">Moje recepty</a></li>
+                <li><a href="#" class="nav-item">Obľúbené recepty</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-status">
+            Prihlásený používateľ:<br>
+            <strong>Erik Pavelka (rola: Užívateľ)</strong>
+        </div>
+    </aside>
+
+    <!-- Pravá časť stránky -->
+    <div class="content-wrapper">
+
+        <!-- Horná lišta -->
+        <header class="topbar">
+            <div class="topbar-spacer"></div>
+            <div class="user-actions">
+                <button type="button" class="btn-cyan">Môj účet</button>
+                <button type="button" class="btn-cyan btn-logout">Odhlásiť sa</button>
+            </div>
+        </header>
+
+        <!-- Hlavný obsah stránky Moje recepty -->
+        <main class="main-content">
+
+            <section class="page-header">
+                <h1>Moje recepty</h1>
+                <button type="button" class="btn-cyan btn-add">+ Pridať recept</button>
+            </section>
+
+            <!-- Filter receptov -->
+            <section class="filter-section" aria-label="Filter receptov">
+                <form class="filter-form">
+                    <label for="search-name" class="filter-label">Filter:</label>
+                    <input type="text" id="search-name" class="filter-control" placeholder="Hľadať názov receptu...">
+                    <select id="category-select" class="filter-control" aria-label="Kategória">
+                        <option value="all">Kategórie: všetky</option>
+                        <option value="polievky">Kategórie: polievky</option>
+                        <option value="mucne">Kategórie: múčne jedlá</option>
+                        <option value="hlavne">Kategórie: hlavné jedlá</option>
+                    </select>
+                    <button type="button" class="btn-filter">Filtrovať</button>
+                </form>
+            </section>
+
+            <!-- Zoznam receptov -->
+            <section class="recipe-list" aria-label="Zoznam mojich receptov">
+
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=240&q=80" alt="Vývar s kuracím mäsom" class="recipe-photo">
+                    <div class="recipe-details">
+                        <h2>Vývar s kuracím mäsom</h2>
+                        <p class="recipe-description">
+                            Tradičný domáci slepačí vývar s koreňovou zeleninou a domácimi rezancami. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                        </p>
+                        <p class="recipe-meta">
+                            <span class="badge">kategória: polievky</span>
+                            <span>⏱ čas: 60 min</span>
+                            <span>hodnotenie: <strong>4.8</strong> <span class="star">★</span></span>
+                        </p>
+                    </div>
+                    <div class="recipe-buttons">
+                        <button type="button" class="btn-outline">Upraviť</button>
+                        <button type="button" class="btn-outline btn-danger">Zmazať</button>
+                    </div>
+                </article>
+
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?auto=format&fit=crop&w=240&q=80" alt="Držková polievka" class="recipe-photo">
+                    <div class="recipe-details">
+                        <h2>Držková polievka</h2>
+                        <p class="recipe-description">
+                            Hustá a poctivá držková polievka dochutená cesnakom, majoránkou a mletou červenou paprikou. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+                        </p>
+                        <p class="recipe-meta">
+                            <span class="badge">kategória: polievky</span>
+                            <span>⏱ čas: 60 min</span>
+                            <span>hodnotenie: <strong>4.8</strong> <span class="star">★</span></span>
+                        </p>
+                    </div>
+                    <div class="recipe-buttons">
+                        <button type="button" class="btn-outline">Upraviť</button>
+                        <button type="button" class="btn-outline btn-danger">Zmazať</button>
+                    </div>
+                </article>
+
+                <article class="recipe-card">
+                    <img src="https://cdn.tescoma.com/content/wysiwyg/CZ_B2C/Blog/2023/recepty/800x-brynzove-pirohy.jpg" alt="Pirohy" class="recipe-photo">
+                    <div class="recipe-details">
+                        <h2>Pirohy</h2>
+                        <p class="recipe-description">
+                            Domáce zemiakovo-bryndzové pirohy podávané s kyslou smotanou a opraženou slaninkou. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+                        </p>
+                        <p class="recipe-meta">
+                            <span class="badge">kategória: múčne jedlá</span>
+                            <span>⏱ čas: 30 min</span>
+                            <span>hodnotenie: <strong>4.8</strong> <span class="star">★</span></span>
+                        </p>
+                    </div>
+                    <div class="recipe-buttons">
+                        <button type="button" class="btn-outline">Upraviť</button>
+                        <button type="button" class="btn-outline btn-danger">Zmazať</button>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+
+        <!-- Spodná lišta so stránkovaním -->
+        <footer class="bottom-bar">
+            <span class="pagination-info">Zobrazené 3 z 12 receptov</span>
+            <div class="pagination-arrows">
+                <button type="button" class="arrow-btn" aria-label="Predošlá strana">&lt;</button>
+                <button type="button" class="arrow-btn" aria-label="Ďalšia strana">&gt;</button>
+            </div>
+        </footer>
+
+    </div>
+</div>
+</body>
+</html>

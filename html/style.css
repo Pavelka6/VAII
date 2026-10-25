@@ -1,0 +1,564 @@
+/* Základný reset a nastavenie box modelu */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    color: #1e293b;
+    background-color: #f8fafc;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Hlavný kontajner celej aplikácie */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Ľavý bočný panel (Sidebar) */
+.sidebar {
+    width: 280px;
+    background-color: #ffffff;
+    border-right: 1px solid #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Horná časť bočného panela s klikateľným logom a názvom GASTRO HUB */
+.brand-bar {
+    height: 80px;
+    border-bottom: 1px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #0f172a;
+    width: 100%;
+    transition: opacity 0.2s ease;
+}
+
+.brand-link:hover {
+    opacity: 0.8;
+}
+
+.logo-box {
+    width: 44px;
+    height: 44px;
+    background-color: #0f172a;
+    color: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.brand-title {
+    border: 1.5px solid #0f172a;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Hlavná navigácia */
+.main-nav {
+    padding: 24px 20px;
+    flex: 1;
+}
+
+.nav-heading {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nav-item {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.nav-item.active {
+    background-color: #94a3b8;
+    color: #0f172a;
+    border-color: #64748b;
+    font-weight: 700;
+}
+
+/* Box s prihláseným používateľom naspodku bočného panela */
+.user-status {
+    margin: 20px;
+    background-color: #a2d5e0;
+    border-radius: 8px;
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 13px;
+    color: #0f172a;
+    border: 1px solid #7ec0cf;
+}
+
+/* Pravá časť aplikácie */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* Horná lišta (Topbar) */
+.topbar {
+    height: 80px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 35px;
+    gap: 20px;
+}
+
+.topbar-spacer {
+    flex: 1;
+}
+
+.global-search {
+    flex: 1;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    background-color: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 15px;
+    color: #1e293b;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: #64748b;
+}
+
+.user-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Bledomodré tlačidlá podľa wireframu */
+.btn-cyan {
+    background-color: #a2d5e0;
+    color: #0f172a;
+    border: 1px solid #7ec0cf;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-cyan:hover {
+    background-color: #8cc6d3;
+}
+
+.btn-add {
+    border: 1.5px solid #0f172a;
+    font-size: 15px;
+    padding: 10px 18px;
+}
+
+/* Hlavný priestor pre obsah */
+.main-content {
+    flex: 1;
+    padding: 30px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Hlavička vnútornej stránky (Moje recepty + Pridať recept) */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 14px;
+    gap: 16px;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* Filter sekcia */
+.filter-section {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 16px 22px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.filter-control {
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    padding: 9px 14px;
+    font-size: 14px;
+    background-color: #ffffff;
+    min-width: 200px;
+    color: #1e293b;
+}
+
+.btn-filter {
+    background-color: #94a3b8;
+    color: #0f172a;
+    border: 1px solid #64748b;
+    border-radius: 6px;
+    padding: 9px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-filter:hover {
+    background-color: #7e91a8;
+}
+
+/* Zoznam a karty receptov */
+.recipe-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.recipe-card {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.recipe-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.recipe-photo {
+    width: 110px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    flex-shrink: 0;
+}
+
+.recipe-details {
+    flex: 1;
+    text-align: left;
+}
+
+.recipe-details h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.recipe-description {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 10px;
+}
+
+.recipe-meta {
+    font-size: 13px;
+    color: #334155;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+}
+
+.badge {
+    background-color: #e2e8f0;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.star {
+    color: #f59e0b;
+}
+
+.recipe-buttons {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btn-outline {
+    background-color: #ffffff;
+    color: #1e293b;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+    background-color: #f1f5f9;
+    border-color: #475569;
+}
+
+.btn-danger:hover {
+    background-color: #fee2e2;
+    border-color: #ef4444;
+    color: #b91c1c;
+}
+
+/* Placeholder pre 1. rám (layout.html) */
+.placeholder-wrapper {
+    display: flex;
+}
+
+.content-placeholder {
+    flex: 1;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 480px;
+    padding: 30px;
+    text-align: center;
+}
+
+.placeholder-inner h2 {
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.placeholder-inner p {
+    font-size: 14px;
+    color: #cbd5e1;
+    max-width: 480px;
+}
+
+/* Spodná lišta (Footer / Stránkovanie) */
+.bottom-bar {
+    background-color: #ffffff;
+    border-top: 1px solid #cbd5e1;
+    padding: 14px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #475569;
+}
+
+.pagination-arrows {
+    display: flex;
+    gap: 12px;
+}
+
+.arrow-btn {
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 12px;
+    transition: background-color 0.2s ease;
+}
+
+.arrow-btn:hover {
+    background-color: #e2e8f0;
+}
+
+/* =========================================================
+   RESPONZÍVNY DIZAJN (Tablety a mobilné obrazovky)
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #cbd5e1;
+    }
+
+    .brand-bar {
+        justify-content: center;
+    }
+
+    .brand-link {
+        justify-content: center;
+    }
+
+    .nav-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .nav-item {
+        font-size: 15px;
+        padding: 10px 8px;
+    }
+
+    .user-status {
+        margin: 0 20px 20px 20px;
+    }
+
+    .topbar {
+        height: auto;
+        padding: 14px 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .topbar-spacer {
+        display: none;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-list {
+        grid-template-columns: 1fr;
+    }
+
+    .user-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .user-actions .btn-cyan {
+        flex: 1;
+        text-align: center;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-control,
+    .btn-filter {
+        width: 100%;
+    }
+
+    .recipe-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+    }
+
+    .recipe-photo {
+        width: 100%;
+        height: 160px;
+    }
+
+    .recipe-buttons {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .recipe-buttons .btn-outline {
+        flex: 1;
+        text-align: center;
+    }
+
+    .bottom-bar {
+        padding: 12px 20px;
+    }
+}
